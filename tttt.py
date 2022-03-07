@@ -365,7 +365,7 @@ class modelv3(nn.Module):
     def forward(self,x,n,data=None):
         xbert=self.BertModel(x)
         lstm,_=self.lstm(xbert[0])
-        print(lstm.shape)
+        # print(lstm.shape)
         at = self.att(lstm).view(-1,100)
         if(n==1 and data=='sci'):
             return self.main_sci(at)[0]
@@ -450,7 +450,7 @@ f1_list = []
 best_val_f1 = 0
 val_f1 = 0
 
-for epoch in range(1):
+for epoch in range(20):
     running_loss = 0
     ypr=[]
     ytr=[]
@@ -685,7 +685,7 @@ f1_list = []
 best_val_f1 = 0
 val_f1 = 0
 
-for epoch in range(1):
+for epoch in range(30):
     running_loss = 0
     ypr=[]
     ytr=[]
