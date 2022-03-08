@@ -533,6 +533,7 @@ for epoch in range(20):
     print('[epoch : %d] train_f1_macro: %.3f, val_f1_macro: %.3f' %(epoch+1, f1, val_f1))
     print('*'*40)
     if val_f1 > best_val_f1:
+        best_val_f1 = val_f1
         torch.save(mod, f'./cohan_v3_newatt_dropout0.4_ep.pt')
     
 #     if((epoch+1)%2==0):
@@ -762,7 +763,8 @@ for epoch in range(30):
     print('[epoch : %d] train_f1_macro: %.3f, val_f1_macro: %.3f' %(epoch+1, f1, val_f1))
     print('*'*40)
     # if((epoch+1)%2==0):
-    if val_f1 > best_val_f1: 
+    if val_f1 > best_val_f1:
+        best_val_f1 = val_f1
         torch.save(mod, f'./cohan_dropout_0.4_3c_smote_ep.pt')
 
 print('Finished Training!!')  
